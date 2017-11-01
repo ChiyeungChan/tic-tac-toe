@@ -9,6 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 from PyQt5.QtGui import *
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -217,7 +218,8 @@ class Window(Ui_MainWindow, QtWidgets.QMainWindow):
         
         palette1 = QtGui.QPalette()
         #palette1.setColor(self.backgroundRole(), QColor(192,253,123))   # 设置背景颜色
-        palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(r'C:\Users\ASUS\Pictures\timg.jpg')))   # 设置背景图片
+        d = os.path.dirname(__file__)
+        palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(os.path.join(d + r'\timg.jpg'))))   # 设置背景图片
         self.setPalette(palette1)
         self.setAutoFillBackground(True) # 不设置也可以
         
